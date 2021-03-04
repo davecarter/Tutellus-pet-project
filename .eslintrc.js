@@ -3,7 +3,7 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: ["plugin:react/recommended", "standard"],
+  extends: ["plugin:react/recommended", "plugin:mocha/recommended", "standard"],
   parserOptions: {
     ecmaFeatures: {
       jsx: true
@@ -11,7 +11,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: "module"
   },
-  plugins: ["react"],
+  plugins: ["react, mocha"],
   rules: {
     quotes: [2, "double", { avoidEscape: true }]
   }

@@ -6,12 +6,8 @@
   "scripts": {
     "build": "./node_modules/.bin/webpack --mode production",
     "start": "webpack serve --open",
-    "co": "sui-mono commit",
-    "now-build": "npm run build",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "start:server": "npx json-server --watch ./src/api.json"
+    "test": "mocha ./src/test/**/*.js --require @babel/register",
+    "test:watch": "npm t -- --watch"
   },
   "repository": {
     "type": "git",
@@ -33,6 +29,10 @@
       "pre-commit": "npm test"
     }
   },
+  "engines": {
+    "node": ">=15.0.0",
+    "npm": ">=6.0.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.13.0",
     "@babel/core": "^7.13.8",
@@ -42,19 +42,24 @@
     "@babel/plugin-transform-runtime": "^7.13.9",
     "@babel/preset-env": "^7.13.9",
     "@babel/preset-react": "^7.12.13",
+    "@babel/register": "7.13.8",
     "@babel/runtime": "^7.13.9",
     "babel-loader": "^8.2.2",
+    "chai": "4.3.3",
+    "chai-as-promised": "7.1.1",
     "css-loader": "^5.1.1",
     "eslint": "^7.21.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-mocha": "8.0.0",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-promise": "4.3.1",
     "eslint-plugin-react": "^7.22.0",
     "html-loader": "^2.1.1",
     "html-webpack-plugin": "^5.2.0",
     "husky": "^5.1.3",
     "mini-css-extract-plugin": "^1.3.9",
+    "mocha": "^8.3.0",
     "node-sass": "^5.0.0",
     "react-dev-utils": "^11.0.3",
     "sass-loader": "^11.0.1",
