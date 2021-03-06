@@ -1,0 +1,16 @@
+.tmdbHeader {
+  align-items: center;
+  background-color: $header-bg-color;
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.5em;
+  height: 300px;
+  justify-content: center;
+  margin: 0;
+  padding: 0 2em;
+
+  & > h1 {
+    margin: 0;
+  }
+}

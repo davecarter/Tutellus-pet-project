@@ -1,3 +1,9 @@
 @import "./styles/variables";
 @import "./styles/normalize";
 @import "./styles/base";
+
+@import "./styles/components/page";
+@import "./styles/components/header";
+@import "./styles/components/homepage";
+@import "./styles/components/moviecard";
+@import "./styles/components/movielist";

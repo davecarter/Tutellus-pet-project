@@ -1,5 +1,21 @@
 import React from "react"
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useParams
+} from "react-router-dom"
 
-const HomePage = () => <h1>Hello!</h1>
+import { MovieList } from "./MovieList"
+
+const HomePage = () => {
+  return (
+    <div className="tmdbHomePage">
+      <Switch>
+        <Route path="/:type" children={<MovieList />} />
+      </Switch>
+    </div>
+  )
+}
 
 export { HomePage }

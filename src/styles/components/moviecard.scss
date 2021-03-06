@@ -1,0 +1,32 @@
+.tmdbMovieCard {
+  background-color: $card-bg-color;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: space-between;
+  margin: 1em;
+  width: 320px;
+
+  &-top {
+    padding: 0 1em;
+  }
+
+  &-description {
+    font-size: 0.9em;
+  }
+
+  &-poster {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+
+  &-meta {
+    font-size: 0.8em;
+    color: white;
+    padding: 0 1em;
+    display: flex;
+    justify-content: space-between;
+    background-color: $card-meta-bg-color;
+  }
+}
