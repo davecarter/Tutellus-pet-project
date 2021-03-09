@@ -12,6 +12,11 @@ const NavigationBar = () => (
         </Link>
       </li>
       <li className={`${className}-item`}>
+        <Link className={`${className}-link`} to="/now_playing">
+          Now Playing
+        </Link>
+      </li>
+      <li className={`${className}-item`}>
         <Link className={`${className}-link`} to="/top_rated">
           Top Rated Movies
         </Link>
@@ -19,6 +24,11 @@ const NavigationBar = () => (
       <li className={`${className}-item`}>
         <Link className={`${className}-link`} to="/popular">
           Popular
+        </Link>
+      </li>
+      <li className={`${className}-item`}>
+        <Link className={`${className}-link`} to="/upcoming">
+          Upcoming
         </Link>
       </li>
     </ul>
