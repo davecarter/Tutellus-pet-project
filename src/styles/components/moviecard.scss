@@ -44,3 +44,17 @@
     background-color: $card-meta-bg-color;
   }
 }
+
+.tmdbMovieCardDetail {
+  background-color: $card-bg-color;
+  display: flex;
+  flex-direction: row;
+  flex: 1 1 auto;
+  justify-content: space-between;
+  margin: 5% auto;
+  width: 90%;
+
+  > .tmdbMovieCard-bottom {
+    flex: 1 1 50%;
+  }
+}

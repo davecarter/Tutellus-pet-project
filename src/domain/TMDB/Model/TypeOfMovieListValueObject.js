@@ -1,7 +1,7 @@
 import { Model } from "../../domain"
 import { InvalidTypeOfMovieList } from "../Errors/InvalidTypeOfMovieList"
 
-const VALID_TYPES = ["top_rated", "popular"]
+const VALID_TYPES = ["top_rated", "popular", "upcoming", "now_playing"]
 
 export class TypeOfMovieListValueObject extends Model {
   static create({ type }) {

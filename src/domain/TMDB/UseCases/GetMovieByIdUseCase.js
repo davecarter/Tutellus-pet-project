@@ -13,6 +13,7 @@ export class GetMovieByIdUseCase extends UseCase {
   }
 
   async execute({ movieId }) {
-    return this._repository.getMovie({ movieId })
+    const movieEntity = await this._repository.getMovie({ movieId })
+    return movieEntity.toJSON()
   }
 }

@@ -12,11 +12,12 @@ export class MovieEntity extends Model {
     })
   }
 
-  constructor({ id, poster, title, rating, released, description }) {
+  constructor({ id, poster, title, tagline, rating, released, description }) {
     super()
     this._id = id
     this._poster = poster
     this._title = title
+    this._tagline = tagline
     this._rating = rating
     this._released = released
     this._description = description
@@ -32,6 +33,10 @@ export class MovieEntity extends Model {
 
   title() {
     return this._title
+  }
+
+  tagline() {
+    return this._tagline
   }
 
   rating() {
@@ -51,6 +56,7 @@ export class MovieEntity extends Model {
       id: this.id(),
       poster: this.poster(),
       title: this.title(),
+      tagline: this.tagline(),
       rating: this.rating(),
       released: this.released(),
       description: this.description()

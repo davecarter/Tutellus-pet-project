@@ -1,5 +1,6 @@
 import { Repository } from "../../domain"
-import { FromTopRatedtoMovieEntityListMapper } from "../Mappers/FromTopRatedtoMovieEntityListMapper"
+import { FromMovieByIdResponseToMovieEntityMapper } from "../Mappers/FromMovieByIdResponseToMovieEntityMapper"
+import { FromListTypeResponseToMovieEntityListMapper } from "../Mappers/FromListTypeResponseToMovieEntityListMapper"
 import { config } from "../../config"
 
 export class HttpMovieRepository extends Repository {
@@ -9,10 +10,15 @@ export class HttpMovieRepository extends Repository {
 
   async getMovie({ movieId }) {
     const { baseURL, apiKey } = config
-    return window
-      .fetch(`${baseURL}movie/${movieId}?api_key=${apiKey}`)
+    const url = `${baseURL}movie/${movieId}?api_key=${apiKey}`
+
+    const response = await window
+      .fetch(url)
       .then((response) => response.json())
       .then((data) => data)
+
+    const movieEntityMapper = FromMovieByIdResponseToMovieEntityMapper.create()
+    return movieEntityMapper.map(response)
   }
 
   async getMovieListByType({ pageNumber, typeVO }) {
@@ -24,7 +30,7 @@ export class HttpMovieRepository extends Repository {
       .then((response) => response.json())
       .then((data) => data)
 
-    const movieEntityListMapper = FromTopRatedtoMovieEntityListMapper.create()
+    const movieEntityListMapper = FromListTypeResponseToMovieEntityListMapper.create()
 
     return movieEntityListMapper.map(response)
   }
