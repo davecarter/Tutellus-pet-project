@@ -19,10 +19,16 @@ export class GetMovieListByTypeUseCase extends UseCase {
     const typeVO = new TypeOfMovieListValueObject.create({
       type
     })
-    const movieEntitiesList = this._repository.getMovieListByType({
-      pageNumber,
-      typeVO
-    })
-    return movieEntitiesList
+    const movieEntityListValueObject = await this._repository.getMovieListByType(
+      {
+        pageNumber,
+        typeVO
+      }
+    )
+
+    // The UseCase returns a serialized Array of MovieEntities
+    return movieEntityListValueObject
+      .toJSON()
+      .movieEntityList.map((entity) => entity.toJSON())
   }
 }
