@@ -2,10 +2,13 @@ import React from "react"
 
 const className = "tmdbHeader"
 
-const Header = () => (
+const Header = ({
+  movieTitle = "The Movie Database",
+  tagline = "Domestika Pet Project"
+}) => (
   <article className={className}>
-    <h1>The Movie Database</h1>
-    <h3>Domestika Pet Project</h3>
+    <h1>{movieTitle}</h1>
+    <h3>{tagline}</h3>
   </article>
 )
 
