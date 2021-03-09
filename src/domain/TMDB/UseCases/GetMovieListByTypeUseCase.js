@@ -27,8 +27,6 @@ export class GetMovieListByTypeUseCase extends UseCase {
     )
 
     // The UseCase returns a serialized Array of MovieEntities
-    return movieEntityListValueObject
-      .toJSON()
-      .movieEntityList.map((entity) => entity.toJSON())
+    return movieEntityListValueObject.toJSON()
   }
 }

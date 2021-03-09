@@ -6,10 +6,10 @@ const MovieCard = ({ title, poster, id, description, rating, released }) => (
   <article className={className}>
     <div className={`${className}-top`}>
       <h2 className={`${className}-title`}>{title}</h2>
-      <p className={`${className}-description`}>{description}</p>
+      <img className={`${className}-poster`} src={poster} />
     </div>
     <div className={`${className}-bottom`}>
-      <img className={`${className}-poster`} src={poster} />
+      <p className={`${className}-description`}>{description}</p>
       <div className={`${className}-meta`}>
         <p className={`${className}-rating`}>
           Rating: <strong>{rating}</strong>

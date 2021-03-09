@@ -5,6 +5,7 @@ import { render } from "react-dom"
 import { NavigationBar } from "./components/NavigationBar"
 import { Header } from "./components/Header"
 import { HomePage } from "./components/HomePage"
+import { Searcher } from "./components/Searcher"
 import "./index.scss"
 
 const App = () => {
@@ -12,7 +13,8 @@ const App = () => {
     <Router>
       <NavigationBar />
       <Header />
-      <Route path="/" component={HomePage} />
+      <Route path="/" exact children={<Searcher />} />
+      <Route path="/:type" children={<HomePage />} />
     </Router>
   )
 }

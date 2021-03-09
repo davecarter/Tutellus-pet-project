@@ -16,7 +16,7 @@ export const MovieList = () => {
       pageNumber: 1,
       type
     }).then((data) => {
-      setMovieList(data)
+      setMovieList(data.movieEntityList)
     })
   }, [type])
 
