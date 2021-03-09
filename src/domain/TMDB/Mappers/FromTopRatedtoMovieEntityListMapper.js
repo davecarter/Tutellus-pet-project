@@ -37,7 +37,7 @@ export class FromTopRatedtoMovieEntityListMapper extends Mapper {
     })
 
     const movieEntityListValueObject = MovieEntityListValueObject.create({
-      movieEntityList
+      movieEntityList: movieEntityList.map((entity) => entity.toJSON())
     })
 
     return movieEntityListValueObject
