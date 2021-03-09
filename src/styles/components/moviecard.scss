@@ -8,17 +8,31 @@
   width: 320px;
 
   &-top {
-    padding: 0 1em;
+    padding: 0;
+  }
+
+  &-title {
+    font-size: 1em;
+    padding: 0 0.7em;
+    text-align: center;
   }
 
   &-description {
-    font-size: 0.9em;
+    font-size: 0.7em;
+    padding: 1em 2em;
   }
 
   &-poster {
     display: block;
     height: auto;
     width: 100%;
+  }
+
+  &-bottom {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 100%;
+    justify-content: space-between;
   }
 
   &-meta {
