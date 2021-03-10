@@ -8,10 +8,11 @@ export const HomePage = () => {
   const domain = Domain.create()
   const [searchQuery, setSearchQuery] = useState("")
   const [movieList, setMovieList] = useState([])
+  const [displayTitle, setDisplayTitle] = useState(false)
 
   const handleInput = (evt) => setSearchQuery(evt.target.value)
   const handleSubmit = () => {
-    console.log("SENDING", searchQuery)
+    setDisplayTitle(true)
     domain.GetMovieListBySearchQueryUseCase.execute({
       searchQuery
     }).then((data) => {
@@ -35,7 +36,14 @@ export const HomePage = () => {
           search
         </button>
       </div>
-      <MovieList movieList={movieList} />
+      <div className="tmdbMovieListPage">
+        {displayTitle && (
+          <h2 className="tmdbMovieList-title">
+            {`List of movies based on ${searchQuery}`}
+          </h2>
+        )}
+        <MovieList movieList={movieList} />
+      </div>
     </div>
   )
 }

@@ -7,6 +7,10 @@ const UseCases = {
   GetMovieListByTypeUseCase: interOP(
     () => import("./TMDB/UseCases/GetMovieListByTypeUseCase.js"),
     "GetMovieListByTypeUseCase"
+  ),
+  GetMovieListBySearchQueryUseCase: interOP(
+    () => import("./TMDB/UseCases/GetMovieListBySearchQueryUseCase.js"),
+    "GetMovieListBySearchQueryUseCase"
   )
 }
 
@@ -18,8 +22,13 @@ export class Domain {
   get GetMovieByIdUseCase() {
     return this._getter("GetMovieByIdUseCase")
   }
+
   get GetMovieListByTypeUseCase() {
     return this._getter("GetMovieListByTypeUseCase")
+  }
+
+  get GetMovieListBySearchQueryUseCase() {
+    return this._getter("GetMovieListBySearchQueryUseCase")
   }
 
   _getter(name) {

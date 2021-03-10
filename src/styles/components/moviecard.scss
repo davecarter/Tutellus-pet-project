@@ -12,12 +12,14 @@
   }
 
   &-title {
+    color: $text-color;
     font-size: 1em;
     padding: 0 0.7em;
     text-align: center;
   }
 
   &-description {
+    color: $text-color;
     font-size: 0.7em;
     padding: 1em 2em;
   }
