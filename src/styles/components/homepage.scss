@@ -1,5 +1,28 @@
 .tmdbHomePage {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 2em;
+  &-hero {
+    padding: 5em;
+    color: white;
+  }
+
+  &-input {
+    font-size: 0.8em;
+    outline: auto;
+    padding: 16px;
+    width: 400px;
+  }
+
+  &-submit {
+    appearance: none !important;
+    background-color: #7fc3ff;
+    border-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 24px;
+    outline: none;
+    padding: 16px 36px;
+
+    &:hover {
+      background-color: darken(#7fc3ff, 10);
+    }
+  }
 }

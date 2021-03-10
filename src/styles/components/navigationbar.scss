@@ -1,5 +1,4 @@
 .tmdbNavigationBar {
-  background-color: darken($header-bg-color, 40);
   &-container {
     align-items: center;
     display: flex;
@@ -16,7 +15,6 @@
 
   &-link {
     color: white;
-    font-weight: bold;
     padding: 16px 2em;
     text-decoration: none;
 
