@@ -20,6 +20,20 @@ export class HttpMovieRepository extends Repository {
     return movieEntityMapper.map(response)
   }
 
+  async getMovieBySearchQuery({ searchQuery }) {
+    const { baseURL, apiKey, language } = config
+    const searchQueryValue = searchQuery.value()
+    const url = `${baseURL}search/movie?api_key=${apiKey}&language=${language.USA}&query=${searchQueryValue}`
+    const response = await window
+      .fetch(url)
+      .then((response) => response.json())
+      .then((data) => data)
+
+    const movieEntityListMapper = FromListTypeResponseToMovieEntityListMapper.create()
+
+    return movieEntityListMapper.map(response)
+  }
+
   async getMovieListByType({ pageNumber, type }) {
     const { baseURL, apiKey, language } = config
     const pageNumberValue = pageNumber.value()
