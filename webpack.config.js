@@ -1,5 +1,8 @@
 const path = require("path")
+const webpack = require("webpack")
+
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const ASSET_PATH = process.env.ASSET_PATH || "/"
 
 module.exports = {
   mode: "development",
@@ -28,6 +31,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      "process.env.ASSET_PATH": JSON.stringify(ASSET_PATH)
+    }),
     new HtmlWebpackPlugin({
       title: "Development",
       template: "./index.html"
@@ -36,6 +42,7 @@ module.exports = {
   output: {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: ASSET_PATH,
     clean: true
   }
 }
