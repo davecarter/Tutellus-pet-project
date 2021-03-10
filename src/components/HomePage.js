@@ -9,41 +9,58 @@ export const HomePage = () => {
   const [searchQuery, setSearchQuery] = useState("")
   const [movieList, setMovieList] = useState([])
   const [displayTitle, setDisplayTitle] = useState(false)
+  const [displayMovieList, setDisplayMovieList] = useState(false)
 
-  const handleInput = (evt) => setSearchQuery(evt.target.value)
+  const handleInput = (evt) => {
+    setSearchQuery(evt.target.value)
+  }
+
+  const clearInput = () => {
+    setDisplayTitle(false)
+    setDisplayMovieList(false)
+    setSearchQuery("")
+  }
+
   const handleSubmit = () => {
     setDisplayTitle(true)
     domain.GetMovieListBySearchQueryUseCase.execute({
       searchQuery
     }).then((data) => {
+      setDisplayMovieList(true)
       setMovieList(data.movieEntityList)
     })
   }
 
+  const handleTitleContent = () => {
+    return movieList.length !== 0
+      ? `List of movies based on ${searchQuery}`
+      : "No results"
+  }
+
   return (
-    <div className={`${className}-hero`}>
-      <h1>Search The Movie Database</h1>
-      <div className={`${className}-searchbox`}>
-        <input
-          className={`${className}-input`}
-          onChange={(evt) => handleInput(evt)}
-          onFocus={() => setSearchQuery(" ")}
-          type="text"
-          placeholder={"insert movie title"}
-          value={searchQuery}
-        />
-        <button className={`${className}-submit`} onClick={handleSubmit}>
-          search
-        </button>
+    <>
+      <div className={`${className}-hero`}>
+        <h1>Search The Movie Database</h1>
+        <div className={`${className}-searchbox`}>
+          <input
+            className={`${className}-input`}
+            onChange={(evt) => handleInput(evt)}
+            onFocus={clearInput}
+            type="text"
+            placeholder={"insert movie title"}
+            value={searchQuery}
+          />
+          <button className={`${className}-submit`} onClick={handleSubmit}>
+            search
+          </button>
+        </div>
       </div>
       <div className="tmdbMovieListPage">
         {displayTitle && (
-          <h2 className="tmdbMovieList-title">
-            {`List of movies based on ${searchQuery}`}
-          </h2>
+          <h2 className="tmdbMovieList-title">{handleTitleContent()}</h2>
         )}
-        <MovieList movieList={movieList} />
+        {displayMovieList && <MovieList movieList={movieList} />}
       </div>
-    </div>
+    </>
   )
 }
