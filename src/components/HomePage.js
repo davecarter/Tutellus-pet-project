@@ -1,40 +1,41 @@
-import React, { useEffect, useState } from "react"
-
+import React, { useState } from "react"
 import { Domain } from "../domain"
-import { config } from "../domain/config"
-import { useParams } from "react-router-dom"
-
-import { Header } from "./Header"
 import { MovieList } from "./MovieList"
 
-const HomePage = () => {
+const className = "tmdbHomePage"
+
+export const HomePage = () => {
   const domain = Domain.create()
-
+  const [searchQuery, setSearchQuery] = useState("")
   const [movieList, setMovieList] = useState([])
-  const [, setMovieType] = useState("")
 
-  const { type } = useParams()
-
-  useEffect(() => {
-    setMovieType(type)
-    domain.GetMovieListByTypeUseCase.execute({
-      pageNumber: 1,
-      type
+  const handleInput = (evt) => setSearchQuery(evt.target.value)
+  const handleSubmit = () => {
+    console.log("SENDING", searchQuery)
+    domain.GetMovieListBySearchQueryUseCase.execute({
+      searchQuery
     }).then((data) => {
       setMovieList(data.movieEntityList)
     })
-  }, [type])
-
-  const formatType = ({ type }) => config.type[type]
+  }
 
   return (
-    <div className="tmdbHomePage">
-      <h2 className="tmdbMovieList-title">
-        List of {formatType({ type })} movies
-      </h2>
+    <div className={`${className}-hero`}>
+      <h1>Search The Movie Database</h1>
+      <div className={`${className}-searchbox`}>
+        <input
+          className={`${className}-input`}
+          onChange={(evt) => handleInput(evt)}
+          onFocus={() => setSearchQuery(" ")}
+          type="text"
+          placeholder={"insert movie title"}
+          value={searchQuery}
+        />
+        <button className={`${className}-submit`} onClick={handleSubmit}>
+          search
+        </button>
+      </div>
       <MovieList movieList={movieList} />
     </div>
   )
 }
-
-export { HomePage }
