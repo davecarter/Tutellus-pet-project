@@ -12,22 +12,22 @@ const NavigationBar = () => (
         </Link>
       </li>
       <li className={`${className}-item`}>
-        <Link className={`${className}-link`} to="/now_playing">
+        <Link className={`${className}-link`} to="/now_playing/page/1">
           Now Playing
         </Link>
       </li>
       <li className={`${className}-item`}>
-        <Link className={`${className}-link`} to="/top_rated">
+        <Link className={`${className}-link`} to="/top_rated/page/1">
           Top Rated Movies
         </Link>
       </li>
       <li className={`${className}-item`}>
-        <Link className={`${className}-link`} to="/popular">
+        <Link className={`${className}-link`} to="/popular/page/1">
           Popular
         </Link>
       </li>
       <li className={`${className}-item`}>
-        <Link className={`${className}-link`} to="/upcoming">
+        <Link className={`${className}-link`} to="/upcoming/page/1">
           Upcoming
         </Link>
       </li>
