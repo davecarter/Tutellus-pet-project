@@ -5,24 +5,26 @@ import { config } from "../domain/config"
 import { useParams } from "react-router-dom"
 
 import { MovieList } from "./MovieList"
+import { Pagination } from "./Pagination"
 
 const MovieListPage = () => {
   const domain = Domain.create()
 
   const [movieList, setMovieList] = useState([])
+  const [{ page, totalPages, totalResults }, setPagination] = useState({})
   const [, setMovieType] = useState("")
-
-  const { type } = useParams()
+  const { type, pageNumber } = useParams()
 
   useEffect(() => {
     setMovieType(type)
     domain.GetMovieListByTypeUseCase.execute({
-      pageNumber: 1,
+      pageNumber,
       type
     }).then((data) => {
       setMovieList(data.movieEntityList)
+      setPagination(data.pagination)
     })
-  }, [type])
+  }, [type, pageNumber])
 
   const formatType = ({ type }) => config.type[type]
 
@@ -31,6 +33,11 @@ const MovieListPage = () => {
       <h2 className="tmdbMovieList-title">
         List of {formatType({ type })} movies
       </h2>
+      <Pagination
+        page={page}
+        totalPages={totalPages}
+        totalResults={totalResults}
+      />
       <MovieList movieList={movieList} />
     </div>
   )
