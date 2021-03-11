@@ -1,6 +1,7 @@
 import { Mapper } from "../../domain"
 import { MovieEntity } from "../Model/MovieEntity"
-import { MovieEntityListValueObject } from "../Model/MovieEntityListValueObject"
+import { MovieEntityListAggregate } from "../Model/MovieEntityListAggregate"
+import { PaginationValueObject } from "../Model/PaginationValueObject"
 import { config } from "../../config"
 
 export class FromListTypeResponseToMovieEntityListMapper extends Mapper {
@@ -9,7 +10,7 @@ export class FromListTypeResponseToMovieEntityListMapper extends Mapper {
   }
 
   map(rawApiResponse) {
-    const { results } = rawApiResponse
+    const { results, page, total_pages, total_results } = rawApiResponse
     const { imgBaseURL } = config
 
     const movieEntityList = results?.map((movie) => {
@@ -38,10 +39,16 @@ export class FromListTypeResponseToMovieEntityListMapper extends Mapper {
       return movieEntity
     })
 
-    const movieEntityListValueObject = MovieEntityListValueObject.create({
+    const paginationValueObject = PaginationValueObject.create({
+      page,
+      totalPages: total_pages,
+      totalResults: total_results
+    })
+    const movieEntityListAggregate = MovieEntityListAggregate.create({
+      pagination: paginationValueObject.toJSON(),
       movieEntityList: movieEntityList.map((entity) => entity.toJSON())
     })
 
-    return movieEntityListValueObject
+    return movieEntityListAggregate
   }
 }

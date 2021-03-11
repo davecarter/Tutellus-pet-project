@@ -21,14 +21,14 @@ export class GetMovieListByTypeUseCase extends UseCase {
     const typeVO = new TypeOfMovieListValueObject.create({
       type
     })
-    const movieEntityListValueObject = await this._repository.getMovieListByType(
-      {
-        pageNumber: pageNumberVO,
-        type: typeVO
-      }
-    )
+    const movieEntityListAggregate = await this._repository.getMovieListByType({
+      pageNumber: pageNumberVO,
+      type: typeVO
+    })
 
-    // The UseCase returns a serialized Array of MovieEntities
-    return movieEntityListValueObject.toJSON()
+    // The UseCase returns a serialized Aggreagate containing an Array
+    // of MovieEntities and a PaginationValueObject
+
+    return movieEntityListAggregate.toJSON()
   }
 }
