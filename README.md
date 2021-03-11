@@ -19,3 +19,14 @@ Clone this repo and use it to scaffold the project. Here you have Babel transpil
 - You'll find useful API information here: https://www.themoviedb.org/documentation/api
 - Create an account to request your apiKey: https://www.themoviedb.org/signup
 - Once registered request your apiKey: https://www.themoviedb.org/settings/api
+
+## Postman API collection
+
+Install [Postman](https://www.postman.com/downloads/) and add [this collection](https://documenter.getpostman.com/view/3172275/Tz5ndz5R) to have access to the different API requests you might need in order to get this app running.
+
+Included methods are:
+
+- GET by Type Movies
+- GET Auth Token
+- GET Search Movies
+- POST Auth Session
