@@ -1,0 +1,25 @@
+.tmdbPagination {
+  background-color: #0000002e;
+  display: flex;
+  flex-basis: 97%;
+  flex-direction: column;
+  font-size: 0.8em;
+  justify-content: center;
+  margin: 0 auto;
+
+  &-meta,
+  &-controls {
+    display: inline-flex;
+    justify-content: center;
+    list-style-type: none;
+    margin-right: 10px;
+
+    &Current {
+      margin: 0 48px 0 32px;
+    }
+
+    &Item {
+      margin-right: 16px;
+    }
+  }
+}
