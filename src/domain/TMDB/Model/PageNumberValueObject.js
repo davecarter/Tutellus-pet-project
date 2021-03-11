@@ -8,7 +8,7 @@ export class PageNumberValueObject extends Model {
   }
 
   static validate({ pageNumber }) {
-    if (typeof pageNumber !== "number")
+    if (typeof pageNumber !== "string")
       throw InvalidPageNumber.create(
         `[PageNumberValueObject.validate] pageNumber(${pageNumber}) type is invalid`
       )
