@@ -13,7 +13,11 @@ const App = () => {
     <Router>
       <NavigationBar />
       <Route path="/" exact children={<HomePage />} />
-      <Route path="/:type" exact children={<MovieListPage />} />
+      <Route
+        path="/:type/page/:pageNumber"
+        exact
+        children={<MovieListPage />}
+      />
       <Route path="/detail/:id" children={<DetailPage />} />
     </Router>
   )
