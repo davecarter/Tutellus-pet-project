@@ -2,6 +2,8 @@
 @import "./styles/normalize";
 @import "./styles/base";
 
+@import './styles/mixins';
+
 @import "./styles/components/page";
 @import "./styles/components/header";
 @import "./styles/components/navigationbar";
@@ -10,3 +12,4 @@
 @import "./styles/components/movielist";
 @import "./styles/components/moviecard";
 @import "./styles/components/pagination";
+

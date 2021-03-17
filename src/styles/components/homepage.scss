@@ -2,13 +2,28 @@
   &-hero {
     padding: 5em;
     color: white;
+
+    @include breakpoint(medium) {
+      padding: 0 2em;
+    }
   }
 
+  &-searchbox {
+    @include breakpoint(medium) {
+      flex-direction: row;
+    }
+  }
+  
   &-input {
     font-size: 0.8em;
     outline: auto;
     padding: 16px;
     width: 400px;
+
+    @include breakpoint(small) {
+      margin-bottom: 1em;
+      width: 100%;
+    }
   }
 
   &-submit {
@@ -20,6 +35,11 @@
     margin-left: 24px;
     outline: none;
     padding: 16px 36px;
+
+    @include breakpoint(small) {
+      margin-left: 0;
+      width: 100%;
+    }
 
     &:hover {
       background-color: darken(#7fc3ff, 10);
