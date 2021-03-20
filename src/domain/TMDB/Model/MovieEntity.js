@@ -1,12 +1,13 @@
 import { Model } from "../../domain"
 
 export class MovieEntity extends Model {
-  static create({ id, poster, title, rating, released, description }) {
+  static create({ id, poster, title, rating, tagline, released, description }) {
     return new MovieEntity({
       id,
       poster,
       title,
       rating,
+      tagline,
       released,
       description
     })
