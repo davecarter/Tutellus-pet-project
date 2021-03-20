@@ -1,11 +1,13 @@
 import axios from "axios"
+import { Fetcher } from "../../domain"
 
-export class AxiosFetcher {
+export class AxiosFetcher extends Fetcher {
   static create({ config } = {}) {
     return new AxiosFetcher({ config })
   }
 
   constructor({ config }) {
+    super()
     this._axios = axios.create(config)
   }
 
