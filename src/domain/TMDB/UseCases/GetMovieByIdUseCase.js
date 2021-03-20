@@ -3,7 +3,7 @@ import { HttpMovieRepository } from "../Repositories/HttpMovieRepository"
 
 export class GetMovieByIdUseCase extends UseCase {
   static create() {
-    const repository = new HttpMovieRepository.create()
+    const repository = HttpMovieRepository.create()
     return new GetMovieByIdUseCase({ repository })
   }
 

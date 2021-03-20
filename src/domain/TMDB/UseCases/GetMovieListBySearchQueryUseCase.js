@@ -4,7 +4,7 @@ import { SearchQueryValueObject } from "../Model/SearchQueryValueObject"
 
 export class GetMovieListBySearchQueryUseCase extends UseCase {
   static create() {
-    const repository = new HttpMovieRepository.create()
+    const repository = HttpMovieRepository.create()
     return new GetMovieListBySearchQueryUseCase({
       repository
     })

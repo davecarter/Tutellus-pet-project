@@ -5,7 +5,7 @@ import { PageNumberValueObject } from "../Model/PageNumberValueObject"
 
 export class GetMovieListByTypeUseCase extends UseCase {
   static create() {
-    const repository = new HttpMovieRepository.create()
+    const repository = HttpMovieRepository.create()
     return new GetMovieListByTypeUseCase({
       repository
     })
