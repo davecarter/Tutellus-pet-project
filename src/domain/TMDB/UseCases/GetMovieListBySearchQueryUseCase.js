@@ -16,7 +16,6 @@ export class GetMovieListBySearchQueryUseCase extends UseCase {
   }
 
   async execute({ searchQuery } = {}) {
-    console.log("SEARCHQUERY USECASE", searchQuery)
     const searchQueryVO = SearchQueryValueObject.create({ searchQuery })
     const movieEntityListValueObject = await this._repository.getMovieBySearchQuery(
       { searchQuery: searchQueryVO }
