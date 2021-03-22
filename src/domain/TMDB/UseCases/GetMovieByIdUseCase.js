@@ -1,5 +1,6 @@
 import { UseCase } from "../../domain"
 import { HttpMovieRepository } from "../Repositories/HttpMovieRepository"
+import { MovieIdValueObject } from "../Model/MovieIdValueObject"
 
 export class GetMovieByIdUseCase extends UseCase {
   static create() {
@@ -13,7 +14,10 @@ export class GetMovieByIdUseCase extends UseCase {
   }
 
   async execute({ movieId }) {
-    const movieEntity = await this._repository.getMovie({ movieId })
+    const movieIdValueObject = MovieIdValueObject.create({ movieId })
+    const movieEntity = await this._repository.getMovie({
+      movieId: movieIdValueObject
+    })
     return movieEntity.toJSON()
   }
 }

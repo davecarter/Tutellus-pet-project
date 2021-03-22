@@ -16,7 +16,8 @@ export class HttpMovieRepository extends Repository {
 
   async getMovie({ movieId }) {
     const { baseURL, apiKey } = config
-    const url = `${baseURL}movie/${movieId}?api_key=${apiKey}`
+    const movieIdValue = movieId.value()
+    const url = `${baseURL}movie/${movieIdValue}?api_key=${apiKey}`
 
     const response = await this._fetcher
       .get(url)
