@@ -1,6 +1,6 @@
 {
-  "name": "domestika-petproject",
-  "version": "0.1.0",
+  "name": "tutellus-petproject",
+  "version": "1.0.0",
   "description": "A IMDB Pet Project build with JavaScript and ReactJS",
   "main": "src/index.js",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dmstk/frontend-pet-project"
+    "url": "https://github.com/davecarter/Tutellus-pet-project.git"
   },
   "keywords": [
     "javascript",
@@ -21,7 +21,7 @@
   "author": "David Garcia",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dmstk/frontend-pet-project/issues"
+    "url": "https://github.com/davecarter/Tutellus-pet-project.git/issues"
   },
   "homepage": "",
   "husky": {
